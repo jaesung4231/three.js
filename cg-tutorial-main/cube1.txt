@@ -1,0 +1,12 @@
+...scene.background=new THREE.Color( 0x444444 );
+
+
+const geometry = new THREE.BoxGeometry();
+let material = new THREE.MeshNormalMaterial({ opacity: 0, transparent: true,});
+
+const cube = new THREE.Mesh( geometry, material );
+cube.position.z=0;
+scene.add( cube );
+
+
+const animate...

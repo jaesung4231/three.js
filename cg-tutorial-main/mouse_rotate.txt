@@ -1,0 +1,43 @@
+const mouse= new THREE.Vector2();
+
+let mouseDown = false,
+    mouseX = 0,
+    mouseY = 0;
+
+// rotateX,rotateY만큼 Cube Rotate
+function rotateScene(rotateX, rotateY) {
+        cube.rotation.y += rotateX/1000 ;
+        cube.rotation.x += rotateY/1000 ;
+}
+
+//사용자에게 웹페이지가 보여지는 영역을 기준으로 좌표를 표시
+function onMouseMove(event) {
+        if (!mouseDown)// Click을 안하면 실행하지 않음 
+        { 
+            return;
+        }
+        event.preventDefault();
+        let rotateX = event.clientX - mouseX 
+        let rotateY = event.clientY - mouseY;
+        rotateScene(rotateX, rotateY);
+}
+
+//
+function onMouseDown(event) {
+        event.preventDefault();
+        mouseDown = true;
+        mouseX = event.clientX; //  Click할 때의 x좌표
+        mouseY = event.clientY; //  Click할 때의 y좌표
+}
+
+//
+function onMouseUp(event) {
+        event.preventDefault();
+        mouseDown = false; //  Click 종료
+}
+
+function addMouseHandler(canvas) {
+        canvas.addEventListener('mousemove', onMouseMove, false);
+        canvas.addEventListener('mousedown', onMouseDown, false);
+        canvas.addEventListener('mouseup', onMouseUp, false); 
+}

@@ -1,0 +1,16 @@
+    clock = new THREE.Clock();
+    
+    const movecam=function(time){
+
+        camera.position.x = Math.sin( time ) * 2;
+        camera.position.y = Math.cos( time ) * 2;
+    }
+   
+
+   const animate = function () {
+        requestAnimationFrame( animate );
+        const time = clock.getElapsedTime();
+        movecam(time);
+
+        renderer.render( scene, camera );
+    };

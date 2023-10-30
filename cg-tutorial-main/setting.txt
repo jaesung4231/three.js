@@ -1,0 +1,16 @@
+const h_scr = 600;
+const v_scr = 400; 
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(1000, h_scr/v_scr,  0.01, 100 );
+camera.position.z = 4; 
+
+scene.background=new THREE.Color( 0x444444 );
+
+const renderer = new THREE.WebGLRenderer({canvas: HelloCanvas, antialias: true}); 
+renderer.setSize( h_scr, v_scr ); 
+
+    const animate = function () {
+        requestAnimationFrame( animate );
+        renderer.render( scene, camera );
+    };
+    animate();

@@ -1,0 +1,18 @@
+
+ let material2 = new THREE.MeshNormalMaterial({ opacity: 1, transparent: true,});
+
+    const cube2 = new THREE.Mesh( geometry, material2 );
+    cube2.position.x=-2;
+    scene.add( cube2 );
+
+
+   const animate = function () {
+        requestAnimationFrame( animate );
+        const time = clock.getElapsedTime();
+    
+        camera.lookAt( cube.position );
+        movecam(time);
+        cube2.rotation.x += 0.02;
+        cube2.rotation.y += 0.02;
+        renderer.render( scene, camera );
+        };
